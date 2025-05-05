@@ -1,6 +1,6 @@
 // Typewriter effect for knight's message
 const knightText = `
-    Life is not a battle easily won. There will be days when the weight of the world feels heavier than this very armor I wear. You’ll face storms within your heart — doubts, fears, and shadows of the past. But hear me well… strength is not measured by how stoically you stand, but by how you rise after each fall.
+    Life is not a battle easily won. There will be days when the weight of the world feels heavier than this armor I wear. You’ll face storms within your heart — doubts, fears, and shadows of the past. But hear me well… strength is not measured by how stoically you stand, but by how you rise after each fall.
 
 `;
 

@@ -9,13 +9,18 @@
 <body>
     <div id="knight-message">
         <p id="message-text"></p>
+        <div class="choice">
+            <a href="page2.html"><span class="hidden" id="yes-btn">Yes</span></a>
+            <span class="hidden">No</span>
+        </div>
     </div>
+    
 
     <!-- Background Music (hidden, controlled by session storage) -->
     <audio id="bg-music" loop>
         <source src="Undertale OST_ 006 - Uwa__ So Temperate♫(MP3_160K).mp3" type="audio/mp3">
     </audio>
-    <button id="next" onclick="window.location.href='page2.html'">LETSSSS GOO</button>
+ 
 <img src="knight.png" alt="next" id="knight">
     <script>
         const message = `
@@ -23,7 +28,7 @@
 
 You stand at the gates of Grinzell — a hidden realm of magic, wonder, and secrets untold. 🌌
 
-By the decree of the Developer Enchantress, Meriem — the architect of this enchanted world and the keeper of your heart — I have been summoned to guide you.
+By the decree of Meriem — the architect of this enchanted world and the keeper of your heart — I have been summoned to guide you.
 
 Beyond this point lies a universe crafted just for you — filled with mysteries to unravel and surprises only the bravest can uncover.
 
@@ -53,6 +58,17 @@ Are you ready to step into the magical world of Grinzell? 🏰✨
         if (sessionStorage.getItem('musicPlaying') === 'true') {
             bgMusic.play();
         }
+        setTimeout(() => {
+    document.querySelectorAll(".choice span").forEach(span => {
+        span.style.display = "inline"; // Make spans visible
+    });
+}, 34000); // 34 seconds
+setTimeout(() => {
+    document.querySelectorAll(".choice span").forEach(span => {
+        span.classList.add("show"); // Apply fade-in effect
+    });
+}, 33000); // 34 seconds
+
     </script>
 
 </body>

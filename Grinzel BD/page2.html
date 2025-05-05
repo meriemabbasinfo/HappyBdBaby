@@ -23,20 +23,18 @@
     <script>
         const message = `
         Welcome to the mystical realm of Grinzell — a world of magic, wonder, and secrets waiting to be discovered. 🌌
-
-… but before we begin, I bear something of great importance.
-
-A letter… from none other than the one who wove this world into existence ,Metiti
-She has entrusted me to deliver it to you, for it carries words only meant for your heart.
-
-Will you open the letter and unveil her message? 💌
-
-
+    
+    … but before we begin, I bear something of great importance.
+    
+    A letter… from none other than the one who wove this world into existence ,Metiti
+    She has entrusted me to deliver it to you, for it carries words only meant for your heart.
+    
+    Will you open the letter and unveil her message? 💌
         `;
-
+    
         let index = 0;
         const textElement = document.getElementById('message-text');
-
+    
         function typeWriter() {
             if (index < message.length) {
                 textElement.innerHTML += message.charAt(index);
@@ -44,14 +42,23 @@ Will you open the letter and unveil her message? 💌
                 setTimeout(typeWriter, 60);
             }
         }
-
-        window.onload = typeWriter;
-
-        // Check if music should already be playing
-        const bgMusic = document.getElementById('bg-music');
-        if (sessionStorage.getItem('musicPlaying') === 'true') {
-            bgMusic.play();
-        }
+    
+        window.onload = () => {
+            typeWriter();
+    
+            // Show the letter image after 40 seconds
+            setTimeout(() => {
+                const seeMessageBtn = document.getElementById('see-message-btn');
+                seeMessageBtn.style.display = 'block';
+            }, 30000);
+    
+            // Play music if it's already flagged as playing
+            const bgMusic = document.getElementById('bg-music');
+            if (sessionStorage.getItem('musicPlaying') === 'true') {
+                bgMusic.play();
+            }
+        };
     </script>
+    
 </body>
 </html>

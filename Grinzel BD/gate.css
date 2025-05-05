@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
     background-image: url('gate.jpg');
 background-size: cover; /* Ensures the image covers the entire screen */
@@ -66,4 +67,118 @@ font-size: 19px; /* Adjust the size here */
     height: auto;
     width: 20%; /* Adjust size as needed */
     
+}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Global font setting */
+body {
+    font-family: 'Press Start 2P', cursive;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: rgba(20, 20, 20, 0.85);
+}
+
+/* Dialogue box style */
+.dialogue-box {
+    background: rgba(0, 0, 0, 0.7);
+    border: 4px solid white;
+    padding: 15px;
+    width: 320px;
+    font-size: 30px; /* Smaller font */
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    line-height: 1.4; /* Tighter line spacing */
+    color: #d3d3d3; /* Lighter color for a "thinner" feel */
+}
+
+/* Knight message bubble */
+#knight-message {
+    background: rgba(34, 32, 30, 0.85);
+    border: 2px solid #fff;
+    padding: 20px;
+    width: 45%;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-bottom: 19%;
+    animation: glow 1.5s infinite alternate;
+    font-size: 14px; /* Reduced for consistency */
+    line-height: 1.3;
+    color: #c8d7de;
+}
+
+/* Glowing effect */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #fff, 0 0 10px #948754, 0 0 15px #a7bc4d;
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #948754, 0 0 15px #a7bc4d;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.show {
+    opacity: 1;
+}
+
+/* Choices Layout */
+.choice {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/* Add hover effect to change selection */
+.choice span {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between triangle and text */
+    cursor: pointer;
+}
+
+/* Default hidden triangle */
+.choice span::before {
+    content: " ";
+    width: 12px;
+    display: inline-block;
+}
+
+/* Show triangle only on hover */
+.choice span:hover::before {
+    content: "▶";
+}
+
+/* Optional: Highlight hovered option */
+.choice span:hover {
+    color: yellow;
+}
+.choice a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+    font-weight: inherit; /* Inherit font weight */
+}
+
+.choice a:visited {
+    color: inherit; /* Ensure visited links don't change color */
+}
+
+.choice a:hover {
+    color: #ffcc00; /* Optional: Change color on hover */
+    cursor: pointer; /* Change cursor to pointer */
 }

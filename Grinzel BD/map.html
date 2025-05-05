@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The book of Grinzell</title>
+    <style>
+        body {
+    background-image: url('outside.gif');
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps the background fixed during scroll */
+    background-position: center; /* Centers the image */
+  }
+
+  
+
+#scroll-img {
+    width: 100%;
+    display: block;
+}
+
+#knight {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 60%; /* Make it as big as you want */
+    max-width: 900px; /* You can increase this */
+    height: auto;
+   
+    z-index: 1; /* Behind the x's */
+}
+.x-mark {
+    position: absolute;
+    width: 30px; /* Adjust size as needed */
+    height: auto;
+    z-index: 2;
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+
+/* Manually place each 'x' */
+#x {
+    top: 50%;
+    left: 30%;
+}
+
+#xx {
+    top: 50%;
+    left: 60%;
+}
+
+#xxx {
+    top: 30%;
+    left: 50%;
+}
+
+    </style>
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="Undertale OST_ 020 - Mysterious Place(MP3_160K).mp3" type="audio/mp3">
+    </audio>
+
+    <div id="knight-container">
+        <img id="knight" src="map.png">
+        <a href="meetFriends.html"><img id="x" class="x-mark" src="x.png"></a>
+        <a href="sister.html"><img id="xx" class="x-mark" src="x.png"></a>
+        <a href="happyBd.html"><img id="xxx" class="x-mark" src="x.png"></a>
+    </div>
+    <script>
+       
+    
+       
+           // Check if music should already be playing
+        const bgMusic = document.getElementById('bg-music');
+        if (sessionStorage.getItem('musicPlaying') === 'true') {
+            bgMusic.play();
+        }
+        
+      </script>
+</body>
+
+</html>

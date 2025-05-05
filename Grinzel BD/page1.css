@@ -1,19 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Global font setting */
 body {
-    background-image: url('download\ \(44\).jpg');
-    background-size: cover; /* Ensures the image covers the entire screen */
-    background-repeat: no-repeat; /* Prevents tiling */
-    background-attachment: fixed; /* Keeps the background fixed during scroll */
-    background-position: center; /* Centers the image */
-  }
-  body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('download (44).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
+    align-items: center;
+    height: 100vh;
     margin: 0;
-  }
-  #knight-message {
-    
-    background: rgba(216, 208, 199, 0.699);
+    color: rgba(20, 20, 20, 0.85);
+}
+
+/* Dialogue box style */
+.dialogue-box {
+    background: rgba(0, 0, 0, 0.7);
+    border: 4px solid white;
+    padding: 15px;
+    width: 320px;
+    font-size: 30px; /* Smaller font */
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    line-height: 1.4; /* Tighter line spacing */
+    color: #d3d3d3; /* Lighter color for a "thinner" feel */
+}
+
+/* Knight message bubble */
+#knight-message {
+    background: rgba(34, 32, 30, 0.85);
     border: 2px solid #fff;
     padding: 20px;
     width: 45%;
@@ -22,10 +42,12 @@ body {
     margin-left: 5%;
     margin-bottom: 19%;
     animation: glow 1.5s infinite alternate;
-    font-size: 20px; /* Adjust the size here */
-    
+    font-size: 14px; /* Reduced for consistency */
+    line-height: 1.3;
+    color: #c8d7de;
 }
 
+/* Glowing effect */
 @keyframes glow {
     from {
         box-shadow: 0 0 5px #fff, 0 0 10px #948754, 0 0 15px #a7bc4d;
@@ -34,15 +56,17 @@ body {
         box-shadow: 0 0 5px #fff, 0 0 10px #948754, 0 0 15px #a7bc4d;
     }
 }
+
+/* Next button positioning */
 #next {
-    position: fixed; /* Keeps it in place while scrolling */
-    bottom: 40px; /* Distance from the bottom */
-    right: 40px; /* Distance from the right */
-    z-index: 1000; /* Makes sure it appears above other elements */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
 }
 
 #next img {
-    width: 155px; /* Adjust size as needed */
+    width: 155px;
     height: auto;
-    cursor: pointer; /* Show clickable hand cursor */
+    cursor: pointer;
 }

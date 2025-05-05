@@ -21,7 +21,7 @@ body {
     max-width: 800px;
     margin: auto;
     padding: 20px;
-    background: #2c2c2cc3;
+    background: #040303c3;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
@@ -131,4 +131,15 @@ body {
 
 #sound-icon:hover {
     transform: scale(1.1);
+}
+.hidden {
+    display: none;
+}
+
+
+body {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
 }

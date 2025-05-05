@@ -8,7 +8,7 @@ body {
 
   #letter-container {
     position: absolute;
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -20,7 +20,7 @@ body {
 #knight {
     position: fixed; /* Keeps it in place while scrolling */
     bottom: 15%; /* Distance from the bottom */
-    right: 20%; /* Distance from the right */
+    right: 10%; /* Distance from the right */
     z-index: 1000; /* Makes sure it appears above other elements */
     height: auto;
     width: 30%; /* Adjust size as needed */

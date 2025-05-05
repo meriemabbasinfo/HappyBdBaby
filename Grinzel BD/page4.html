@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page4.css">
-    <title>lets go to Grinzell castle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="page4.css" />
+  <title>Let's go to Grinzell Castle</title>
 </head>
 <body>
     <div id="knight-message">
         <p id="message-text"></p>
+        <div class="choice">
+            <a href="nearTheCastle.html"><span class="hidden" id="yes-btn">Follow the knight</span></a>
+            
+        </div>
     </div>
+    
 
     <!-- Background Music (hidden, controlled by session storage) -->
     <audio id="bg-music" loop>
-        <source src="Undertale Ost_ 086 - Don_t Give Up(MP3_160K).mp3" type="audio/mp3">
+        <source src="Undertale OST_ 071 - Undertale(MP3_160K).mp3" type="audio/mp3">
     </audio>
-    <img src="knight.png" alt="next" id="knight">
-    <button id="next" onclick="window.location.href='nearTheCastle.html'">Follow the Knight</button>
-
+ 
+<img src="knight.png" alt="next" id="knight">
     <script>
         const message = `
-        Ah, Sir Anes… I saw the way your heart stirred while reading Meriem's words. Such a rare bond, built from care and devotion, is a treasure greater than any enchanted sword or mystical artifact.
+       Ah, Sir Anes… something about y'all... Such a rare bond, built from care and devotion, is a treasure greater than any enchanted sword or mystical artifact.
 
 It is a gift — to be loved, to be seen, to have someone who believes in your strength even when shadows creep in.
 
 But now, brave one, our journey presses on. We must head to the ancient castle of Grinzell, where an important mystical book lies hidden — a book said to hold secrets of the heart and mind.
 
-Come, walk with me. Let us have a man-to-man conversation along the way… about loyalty, love, and the unyielding spirit of a warrior
+Come, walk with me. Let us have a man-to-man conversation along the way… 
 
 
         `;
@@ -49,6 +53,18 @@ Come, walk with me. Let us have a man-to-man conversation along the way… about
         if (sessionStorage.getItem('musicPlaying') === 'true') {
             bgMusic.play();
         }
+        setTimeout(() => {
+    document.querySelectorAll(".choice span").forEach(span => {
+        span.style.display = "inline"; // Make spans visible
+    });
+}, 34000); // 34 seconds
+setTimeout(() => {
+    document.querySelectorAll(".choice span").forEach(span => {
+        span.classList.add("show"); // Apply fade-in effect
+    });
+}, 33000); // 34 seconds
+
     </script>
+ 
 </body>
 </html>

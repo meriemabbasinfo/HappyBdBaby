@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escaping</title>
+    
+    <style>
+        body {
+    background-image: url('outside.gif');
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps the background fixed during scroll */
+    background-position: center; /* Centers the image */
+  }
+
+/* General styling */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+body {
+    font-family: 'IM Fell English', serif;
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #2c2c2cc3;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Narrative */
+.narrative {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #d3d3d3;
+    background: #3c3c3c;
+    padding: 15px;
+    border-left: 5px solid #092d43;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #8c7b75;
+    }
+    to {
+        box-shadow: 0 0 20px #d3d3d3;
+    }
+}
+
+/* Knight's Dialogue */
+.knight-dialogue {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.knight-img {
+    width: 120px;
+    height: auto;
+    animation: knightFade 2s ease-in-out;
+}
+
+
+.speech-bubble {
+    background: #5a4d4d;
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 600px;
+    position: relative;
+    
+}
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #8c7b75;
+    }
+    to {
+        box-shadow: 0 0 20px #d3d3d3;
+    }
+}
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    border-width: 10px 20px 10px 0;
+    border-style: solid;
+    border-color: transparent #5a4d4d transparent transparent;
+    transform: translateY(-50%);
+}
+
+/* Castle Entrance */
+.castle-entrance {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.castle-link {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #d3d3d3;
+    padding: 10px 20px;
+    border: 2px solid #8c7b75;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.castle-link:hover {
+    background-color: #8c7b75;
+    color: #1a1a1a;
+    box-shadow: 0 0 20px #8c7b75;
+}
+/* Sound icon styling */
+#sound-icon {
+    position: fixed;
+    bottom: 520px;
+    right: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #8c7b75;
+    color: #1a1a1a;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #8c7b75;
+    transition: transform 0.3s ease;
+}
+
+#sound-icon:hover {
+    transform: scale(1.1);
+}
+.hidden {
+    display: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+body {
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    line-height: 1.4;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bg-music" loop autoplay>
+        <source src="Undertale Ost_ 086 - Don_t Give Up(MP3_160K).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Sound Icon -->
+    <div id="sound-icon">🔊</div>
+
+    <div class="container">
+        <!-- Narrative -->
+        <div class="narrative">
+            <p>
+                The knight reaches behind his cloak and reveals a glowing book wrapped in shimmering vines and gold.
+            </p>
+        </div>
+
+        <!-- Knight Dialogue -->
+        <div class="knight-dialogue">
+            <img src="knight.png" alt="Knight" class="knight-img">
+            <div class="speech-bubble" id="knight-message">
+                <p id="knight-text"></p>
+            </div>
+        </div>
+
+        <!-- Delayed Castle Link -->
+        <div class="castle-entrance hidden" id="delayed-link">
+            <a href="book.html" class="castle-link">take the book</a>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        const knightText = `
+And now… as promised. The Book of Grinzell Mysteries.
+Inside it lies magic, laughter, secrets of the heart… and maybe even a few surprises written by Meriem herself.
+
+Go on, brave one. Open it. Your next chapter awaits. 
+`;
+
+        let i = 0;
+        const knightMessage = document.getElementById('knight-text');
+
+        function typeWriter() {
+            if (i < knightText.length) {
+                knightMessage.innerHTML += knightText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        window.onload = typeWriter;
+
+        // Music toggle
+        const bgMusic = document.getElementById('bg-music');
+        const soundIcon = document.getElementById('sound-icon');
+        let isPlaying = true;
+
+        soundIcon.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                soundIcon.textContent = '🔇';
+            } else {
+                bgMusic.play();
+                soundIcon.textContent = '🔊';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Show link after 30 seconds
+        setTimeout(() => {
+            document.getElementById("delayed-link").classList.remove("hidden");
+        }, 15000);
+    </script>
+</body>
+</html>

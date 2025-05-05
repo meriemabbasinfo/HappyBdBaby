@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meet friends</title>
+    <style>
+      body {
+    background-image: url('friends.jpg');
+background-size: cover; /* Ensures the image covers the entire screen */
+background-repeat: no-repeat; /* Prevents tiling */
+background-attachment: fixed; /* Keeps the background fixed during scroll */
+background-position: center; /* Centers the image */
+
+
+display: flex;
+align-items: center; /* Center vertically */
+height: 100vh; /* Full viewport height */
+margin: 0;
+}
+#knight-message {
+
+background: rgba(216, 208, 199, 0.699);
+border: 2px solid #fff;
+padding: 20px;
+width: 45%;
+text-align: center;
+border-radius: 10px;
+margin-left: 5%;
+margin-bottom: 19%;
+animation: glow 1.5s infinite alternate;
+font-size: 20px; /* Adjust the size here */
+
+}
+
+@keyframes glow {
+from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #948754, 0 0 15px #a7bc4d;
+}
+to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #948754, 0 0 15px #a7bc4d;
+}
+}
+#next {
+  
+position: fixed; /* Keeps it in place while scrolling */
+bottom: 10%; /* Distance from the bottom */
+right: 61%; /* Distance from the right */
+z-index: 1000; /* Makes sure it appears above other elements */
+ 
+ background-color: aqua;
+ border-radius: 10px;
+ border: 2px solid #65b6ca;
+padding: 10px;
+width: 20%;
+text-align: center;
+border-radius: 10px;
+
+animation: glow 1.5s infinite alternate;
+font-size: 19px; /* Adjust the size here */
+
+}
+#next:hover {
+    background-color: #1a424d;
+    color: white;
+    cursor: pointer;
+}
+#knight {
+    position: fixed; /* Keeps it in place while scrolling */
+    bottom: 15%; /* Distance from the bottom */
+    right: 20%; /* Distance from the right */
+    z-index: 1000; /* Makes sure it appears above other elements */
+    height: auto;
+    width: 20%; /* Adjust size as needed */
+    
+}
+#nextt {
+    position: fixed; /* Keeps it in place while scrolling */
+    bottom: 40px; /* Distance from the bottom */
+    right: 40px; /* Distance from the right */
+    z-index: 1000; /* Makes sure it appears above other elements */
+}
+
+#nextt img {
+    width: 155px; /* Adjust size as needed */
+    height: auto;
+    cursor: pointer; /* Show clickable hand cursor */
+}
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+body {
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    line-height: 1.4;
+    color: rgb(0, 0, 0);
+}
+    </style>
+</head>
+<body>
+    <div id="knight-message">
+        <p id="message-text"></p>
+    </div>
+
+    <!-- Background Music (hidden, controlled by session storage) -->
+    <audio id="bg-music" loop>
+        <source src="Undertale OST_ 071 - Undertale(MP3_160K).mp3" type="audio/mp3">
+    </audio>
+    <a href="map.html" id="nextt"><img src="next.png"></a>
+
+    <script>
+        const message = `
+        A message from your Turbocharged racist gang :
+                    "all we say is happy birthday + a curse word really xddddddd"
+
+
+
+        `;
+
+        let index = 0;
+        const textElement = document.getElementById('message-text');
+
+        function typeWriter() {
+            if (index < message.length) {
+                textElement.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(typeWriter, 60);
+            }
+        }
+
+        window.onload = typeWriter;
+
+        // Check if music should already be playing
+        const bgMusic = document.getElementById('bg-music');
+        if (sessionStorage.getItem('musicPlaying') === 'true') {
+            bgMusic.play();
+        }
+    </script>
+
+ 
+</body>
+</html>

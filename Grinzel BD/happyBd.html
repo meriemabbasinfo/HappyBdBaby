@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>letter</title>
+    <style>
+   body {
+  margin: 0;
+  padding: 0;
+  background-image: url('vintage.jpg'); /* Replace with your parchment image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Georgia', serif;
+  color: #2c1e1e;
+  line-height: 1.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.parchment {
+  animation: fadeIn 2.5s ease-in;
+  background: rgba(255, 248, 220, 0.85);
+  padding: 40px;
+  max-width: 800px;
+  margin: 60px 20px;
+  border: 5px solid #e0c097;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.letter p {
+   
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Georgia', serif;
+  color: #2c1e1e;
+  line-height: 1.8;
+  min-height:50vh; /* Changed from height */
+  
+  display: flex;
+  justify-content: center;
+  padding-top: 300px; /* NEW: Prevent text from being clipped at top */
+  box-sizing: border-box;
+}
+.parchment {
+  animation: fadeIn 2.5s ease-in;
+  background: rgba(255, 248, 220, 0.9);
+  padding: 100px;
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 60px; /* Gives space at bottom for scrolling */
+  border: 5px solid #e0c097;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+.letter-img{
+    width: 30%;
+}
+#scroll-img {
+  position: absolute; /* Keeps it in place while scrolling */
+    bottom: 20px; /* Distance from the bottom */
+    right: 40px; /* Distance from the right */
+    z-index: 1000; /* Makes sure it appears above other elements */
+    width: 20%;
+}
+
+    </style>
+</head>
+<body>
+      <!-- Background Music (hidden, controlled by session storage) -->
+      <audio id="bg-music" loop>
+        <source src="Undertale OST_ 017 - Snowy(MP3_160K).mp3" type="audio/mp3">
+    </audio>
+    <div class="parchment">
+        <div class="letter">
+          <p>Happy birthday</p>
+          <p>I met you when you were 22. And now you're 24 — woah, where'd all the time go! You're so old you might need to start thinking about killing yourself already nz39 hh. Seriously. Lovina kbrti and I feel like a mom watching her kid grow. Happy birthday my boy.</p>
+          <p>Recently I realized something. They say God is the one who owns “love.” I don’t know why I was chosen, but I’m grateful. In our early talking stage, even before we start dating , —  I always wanted to see you happy, laughing, alive. That’s all I ever want. Your happiness brings me peace.</p>
+          <p>I hope this Grinzell World Cyber Corner made you smile — that’s my aim. Happy birthday, Anes.</p>
+          <p>— Metiti</p>
+        </div>
+        <!-- ✨ First Image -->
+  <img src="happy birthday card, pixel art postcard, 80s 90s old arcade game style, nostalgia, birthday cake.jpg" alt="Us together" class="letter-img">
+
+  
+  <!-- ✨ Second Image -->
+  <img src="photo_5818984927604099565_y-removebg-preview.png" alt="Grinzell moment" class="letter-img">
+
+  <p>
+    I hope that at least you smiled at some point...
+  </p>
+      </div>
+    
+      <!-- Background Music -->
+      <audio id="bg-music" autoplay loop>
+        <source src="" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      <a href="map.html">
+        <img src="next.png" alt="Magical scroll" id="scroll-img">
+    </a>
+   
+      <script>
+        window.addEventListener('click', () => {
+          const audio = document.getElementById('bg-music');
+          if (audio && audio.paused) {
+            audio.play().catch(e => console.log('Audio play blocked:', e));
+          }
+        }, { once: true });
+      </script>
+    
+    
+    <script>
+       
+        
+        // Check if music should already be playing
+        const bgMusic = document.getElementById('bg-music');
+        if (sessionStorage.getItem('musicPlaying') === 'true') {
+            bgMusic.play();
+        }
+        </script>
+
+</body>
+</html>
